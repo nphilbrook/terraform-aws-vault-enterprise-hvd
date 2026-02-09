@@ -131,7 +131,7 @@ resource "aws_security_group_rule" "ingress_vault_api_lb" {
 
 # Necessary Security Group rules for consumer to reach Vault LB
 resource "aws_security_group_rule" "ingress_vault_api_lb_cidr" {
-  count       = var.net_ingress_lb_cidr_blocks != null && length(var.net_ingress_lb_cidr_blocks) > 0 ? 1 : 0
+  count       = var.load_balancing_scheme != "NONE" && var.net_ingress_lb_cidr_blocks != null && length(var.net_ingress_lb_cidr_blocks) > 0 ? 1 : 0
   type        = "ingress"
   from_port   = var.vault_port_api
   to_port     = var.vault_port_api
@@ -143,7 +143,7 @@ resource "aws_security_group_rule" "ingress_vault_api_lb_cidr" {
 }
 
 resource "aws_security_group_rule" "ingress_vault_api_lb_sg_ids" {
-  count                    = var.net_ingress_lb_security_group_ids != null && length(var.net_ingress_lb_security_group_ids) > 0 ? length(var.net_ingress_lb_security_group_ids) : 0
+  count                    = var.load_balancing_scheme != "NONE" && var.net_ingress_lb_security_group_ids != null && length(var.net_ingress_lb_security_group_ids) > 0 ? length(var.net_ingress_lb_security_group_ids) : 0
   type                     = "ingress"
   from_port                = var.vault_port_api
   to_port                  = var.vault_port_api
