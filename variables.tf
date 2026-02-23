@@ -552,3 +552,9 @@ variable "enable_cross_zone_load_balancing" {
   description = "Enable cross-zone load balancing for the Network Load Balancer."
   default     = false
 }
+
+variable "custom_target_group_arns" {
+  type        = list(string)
+  description = "To attach custom target group ARNs to the ASG - specify them here. The default target group (created in this module) will always be used."
+  default     = []
+}

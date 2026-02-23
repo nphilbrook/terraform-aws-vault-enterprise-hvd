@@ -144,7 +144,7 @@ resource "aws_autoscaling_group" "main" {
   default_cooldown = 30
   placement_group  = aws_placement_group.main.id
 
-  target_group_arns = var.load_balancing_scheme == "NONE" ? [] : [aws_lb_target_group.vault_api[0].arn]
+  target_group_arns = var.load_balancing_scheme == "NONE" ? [] : concat([aws_lb_target_group.vault_api[0].arn], var.custom_target_group_arns)
 
   dynamic "tag" {
     for_each = var.resource_tags
