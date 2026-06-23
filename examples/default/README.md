@@ -41,6 +41,7 @@ $ terraform apply
 | <a name="input_net_lb_subnet_ids"></a> [net\_lb\_subnet\_ids](#input\_net\_lb\_subnet\_ids) | The subnet IDs in the VPC to host the load balancer in. | `list(string)` | n/a | yes |
 | <a name="input_net_vault_subnet_ids"></a> [net\_vault\_subnet\_ids](#input\_net\_vault\_subnet\_ids) | (required) The subnet IDs in the VPC to host the Vault servers in | `list(string)` | n/a | yes |
 | <a name="input_net_vpc_id"></a> [net\_vpc\_id](#input\_net\_vpc\_id) | (required) The VPC ID to host the cluster in | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | The AWS region to deploy resources in. | `string` | n/a | yes |
 | <a name="input_sm_vault_license_arn"></a> [sm\_vault\_license\_arn](#input\_sm\_vault\_license\_arn) | The ARN of the license secret in AWS Secrets Manager | `string` | n/a | yes |
 | <a name="input_sm_vault_tls_ca_bundle"></a> [sm\_vault\_tls\_ca\_bundle](#input\_sm\_vault\_tls\_ca\_bundle) | (required) The ARN of the CA bundle secret in AWS Secrets Manager, Secret should be stored as a base64-encoded string. Secret type should be plaintext. | `string` | n/a | yes |
 | <a name="input_sm_vault_tls_cert_arn"></a> [sm\_vault\_tls\_cert\_arn](#input\_sm\_vault\_tls\_cert\_arn) | (required) The ARN of the signed TLS certificate secret in AWS Secrets Manager, Secret should be stored as a base64-encoded string. Secret type should be plaintext. | `string` | n/a | yes |
